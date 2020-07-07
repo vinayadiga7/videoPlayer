@@ -1,0 +1,67 @@
+.ui.segment.embed {
+  width: 100%;
+}
+
+/* .content.content-me {
+  display: block;
+  position: absolute;
+  top: 10px;
+} */
+
+.description {
+  color: #585a58;
+  font-size: 16px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.subscribe-button:link,
+.subscribe-button:visited {
+  display: inline-block;
+  padding: 10px;
+  width: 30%;
+  height: 40px;
+  background-color: red;
+  border-radius: 10px;
+  color: #f2f2f2;
+  font-size: 14px;
+  text-align: center;
+  box-shadow: 0 10px 20px black;
+  transition: transform 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+
+.subscribe-button:hover::before {
+  transform: scaleX(1.5) scaleY(2);
+  opacity: 0;
+}
+
+.subscribe-button:active {
+  transform: translateY(3px);
+  box-shadow: 0 5px 10px black;
+}
+
+.subscribe-button::before {
+  content: "";
+  display: inline-block;
+  height: 40px;
+  width: 100%;
+  background-color: red;
+  color: #f2f2f2;
+  position: absolute;
+  z-index: -2;
+  left: 0;
+  top: 0;
+  transition: all 0.5s;
+}
+
+.button-container {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 10px;
+}
+
+.ui.header.header-me {
+  text-decoration: underline;
+  color: rgb(5, 17, 189);
+}

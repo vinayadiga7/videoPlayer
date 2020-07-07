@@ -21,17 +21,24 @@ class App extends React.Component {
     });
   };
 
+  componentDidMount() {
+    this.onFormSubmit("material-ui");
+  }
+
   onFormSubmit = async (term) => {
     const response = await youtube.get("/search", {
       params: {
         part: "snippet",
-        maxResults: 5,
+        maxResults: 7,
         key: KEY,
         q: term,
+        type: "video",
+        videoDuration: "short",
       },
     });
     this.setState({
       videos: response.data.items,
+      selectedVideo: response.data.items[0],
     });
   };
 
@@ -39,11 +46,17 @@ class App extends React.Component {
     return (
       <div className="ui container search-1">
         <SearchBar onSearchComplete={this.onFormSubmit} />
-        <VideoDetails video={this.state.selectedVideo} />
-        <VideoList
-          videos={this.state.videos}
-          onVideoSelect={this.onVideoSelect}
-        />
+        <div className="ui grid">
+          <div className="ten wide column">
+            <VideoDetails video={this.state.selectedVideo} />
+          </div>
+          <div className="six wide column">
+            <VideoList
+              videos={this.state.videos}
+              onVideoSelect={this.onVideoSelect}
+            />
+          </div>
+        </div>
       </div>
     );
   }
